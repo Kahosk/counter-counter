@@ -1,6 +1,8 @@
 package com.kahosk.counter
 
+import android.content.res.ColorStateList
 import android.gesture.Gesture
+import android.graphics.Color
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -72,6 +74,10 @@ class MainActivity : AppCompatActivity() {
         var total_life = p1+p2
         battleBar.max = total_life
         battleBar.progress = p1
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            battleBar.progressTintList = ColorStateList.valueOf(Color.BLUE)
+            battleBar.progressBackgroundTintList = ColorStateList.valueOf(Color.RED)
+        }
     }
 
 
