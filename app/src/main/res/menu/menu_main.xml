@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kahosk.myapplication.MainActivity">
+    <item
+        android:id="@+id/rotate1"
+        android:orderInCategory="100"
+        android:title="@string/rotate"
+        app:showAsAction="never" />
+    <item
+    android:id="@+id/restart"
+    android:orderInCategory="100"
+    android:title="@string/restart"
+    app:showAsAction="never" />
+    <item
+        android:id="@+id/restart_commander"
+        android:orderInCategory="100"
+        android:title="@string/r_commander"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/restart_multi"
+        android:orderInCategory="100"
+        android:title="@string/r_multi"
+        app:showAsAction="never" />
+</menu>

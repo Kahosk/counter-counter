@@ -57,18 +57,6 @@
                 android:contentDescription="@android:string/no"
                 app:srcCompat="@mipmap/minus" />
 
-            <ImageButton
-                android:id="@+id/btn_rotate1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@android:string/ok"
-                app:srcCompat="@mipmap/screen_rotation_button" />
-            <ImageButton
-                android:id="@+id/btn_refresh1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@android:string/ok"
-                app:srcCompat="@mipmap/refresh_button" />
 
         </LinearLayout>
 
@@ -130,18 +118,6 @@
                     android:contentDescription="@android:string/no"
                     app:srcCompat="@mipmap/minus" />
 
-                <ImageButton
-                    android:id="@+id/btn_rotate2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@android:string/ok"
-                    app:srcCompat="@mipmap/screen_rotation_button" />
-                <ImageButton
-                    android:id="@+id/btn_refresh2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@android:string/ok"
-                    app:srcCompat="@mipmap/refresh_button" />
 
             </LinearLayout>
         </RelativeLayout>

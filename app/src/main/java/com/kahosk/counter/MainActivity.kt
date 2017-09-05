@@ -5,9 +5,9 @@ import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.annotation.RequiresApi
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.widget.TextView
+
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,12 +16,13 @@ class MainActivity : AppCompatActivity() {
     val start_life = 20
     var player1_life = 20
     var player2_life = 20
-    var player1_rotation = 180F
-    var player2_rotation = 0F
+    var player1_rotation = 0F
+    var player2_rotation = 180F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         if (savedInstanceState != null) {
             player1_life = savedInstanceState.getInt("player1")
             player2_life = savedInstanceState.getInt("player2")
@@ -31,6 +32,25 @@ class MainActivity : AppCompatActivity() {
         setInitials()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.restart -> restart(20)
+            R.id.restart_commander -> restart(30)
+            R.id.restart_multi-> restart(40)
+            R.id.rotate1 -> setRotation1()
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    
     override fun onSaveInstanceState(savedInstanceState: Bundle?) {
         savedInstanceState?.putInt("player1", player1_life)
         savedInstanceState?.putInt("player2", player2_life)
@@ -44,7 +64,6 @@ class MainActivity : AppCompatActivity() {
         setRotation1()
         setRotation2()
         updateProgress()
-        setClickButtons()
         setOnHoldButtons()
         setTextTouch()
     }
@@ -115,36 +134,25 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun setRotation1() {
+    private fun setRotation1(): Boolean {
+        player1_rotation = if (player1_rotation == 0F) 180F else 0F
         buttonLayout1.rotation = player1_rotation
         player1.rotation = player1_rotation
+        return true
     }
-    private fun setRotation2() {
+    private fun setRotation2(): Boolean {
+        player2_rotation = if (player2_rotation == 0F) 180F else 0F
         buttonLayout2.rotation = player2_rotation
         player2.rotation = player2_rotation
+        return true
     }
-
-    private fun setClickButtons() {
-
-        btn_refresh1.setOnClickListener {
-            player1_life = start_life
-            player1.text = player1_life.toString()
-            updateProgress()
-        }
-        btn_refresh2.setOnClickListener {
-            player2_life = start_life
-            player2.text = player2_life.toString()
-            updateProgress()
-        }
-        btn_rotate1.setOnClickListener {
-            player1_rotation = if (player1_rotation == 0F) 180F else 0F
-            setRotation1()
-        }
-        btn_rotate2.setOnClickListener {
-            player2_rotation = if (player2_rotation == 0F) 180F else 0F
-            setRotation2()
-        }
-
+    private fun restart(life: Int): Boolean {
+        player1_life = life
+        player1.text = player1_life.toString()
+        player2_life = life
+        player2.text = player2_life.toString()
+        updateProgress()
+        return true
     }
 
     private fun setTextTouch() {
