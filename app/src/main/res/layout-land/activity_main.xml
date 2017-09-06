@@ -26,7 +26,7 @@
             android:layout_alignParentRight="false"
             android:layout_alignParentStart="false"
             android:layout_alignParentTop="false"
-            android:layout_toLeftOf="@+id/battleBar"
+            android:layout_toLeftOf="@+id/battleBarSkin"
             android:orientation="horizontal">
 
             <TextView
@@ -70,15 +70,22 @@
 
         </RelativeLayout>
 
+        <Space
+            android:id="@+id/battleBarSkin"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true" />
+
         <ProgressBar
             android:id="@+id/battleBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="wrap_content"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:max="100"
             android:progress="50"
             android:rotation="90" />
+
 
         <RelativeLayout
             android:id="@+id/player2_content"
@@ -87,7 +94,7 @@
             android:layout_alignParentBottom="false"
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="false"
-            android:layout_toRightOf="@+id/battleBar"
+            android:layout_toRightOf="@+id/battleBarSkin"
             android:orientation="vertical">
 
             <TextView
@@ -130,6 +137,7 @@
 
             </LinearLayout>
         </RelativeLayout>
+
     </RelativeLayout>
 
 
