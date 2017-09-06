@@ -74,17 +74,19 @@
             android:id="@+id/battleBarSkin"
             android:layout_width="10dp"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary" />
 
         <ProgressBar
             android:id="@+id/battleBar"
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:max="100"
-            android:progress="50"
-            android:rotation="90" />
+            android:progress="50" />
 
 
         <RelativeLayout
