@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Counter</string>
     <string name="rotate">Rotate</string>
-    <string name="restart">Restart</string>
+    <string name="restart">Restart (20)</string>
     <string name="r_commander">Restart (30)</string>
     <string name="r_multi">Restart (40)</string>
 </resources>

@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             R.id.restart -> restart(20)
             R.id.restart_commander -> restart(30)
             R.id.restart_multi-> restart(40)
-            R.id.rotate1 -> setRotation1()
+            R.id.rotate1 -> setRotation1(if (player1_rotation == 0F) 180F else 0F)
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -140,14 +140,14 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun setRotation1(): Boolean {
-        player1_rotation = if (player1_rotation == 0F) 180F else 0F
+    private fun setRotation1(rotation: Float = player1_rotation): Boolean {
+        player1_rotation = rotation
         buttonLayout1.rotation = player1_rotation
         player1.rotation = player1_rotation
         return true
     }
-    private fun setRotation2(): Boolean {
-        player2_rotation = if (player2_rotation == 0F) 180F else 0F
+    private fun setRotation2(rotation: Float = player2_rotation): Boolean {
+        player2_rotation = rotation
         buttonLayout2.rotation = player2_rotation
         player2.rotation = player2_rotation
         return true
