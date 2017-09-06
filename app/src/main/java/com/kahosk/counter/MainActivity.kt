@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     var player1_life = 20
     var player2_life = 20
     var player1_rotation = 0F
-    var player2_rotation = 180F
+    var player2_rotation = 0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
     private fun setInitials() {
         player1.text = player1_life.toString()
         player2.text = player2_life.toString()
-        setRotation1()
-        setRotation2()
+        setRotation1(0F)
+        setRotation2(0F)
         updateProgress()
         setOnHoldButtons()
         setTextTouch()
