@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi
 import android.view.*
 import android.widget.TextView
 
+import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,6 +33,14 @@ class MainActivity : AppCompatActivity() {
             player2_rotation = savedInstanceState.getFloat("player2_rotation")
         }
         setInitials()
+
+
+
+        fabtoolbar_fab.setOnClickListener(View.OnClickListener { fabtoolbar.show() })
+        one.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
+        two.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
+        three.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
+        four.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

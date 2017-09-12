@@ -6,122 +6,211 @@
     android:layout_height="match_parent"
     tools:context="com.kahosk.counter.MainActivity">
 
-    <RelativeLayout
+    <com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout
+        android:id="@+id/fabtoolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-    <RelativeLayout
-        android:id="@+id/player1_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_above="@+id/battleBar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        >
+        app:showDuration="600"
+        app:hideDuration="200"
+        app:horizontalMargin="30dp"
+        app:verticalMargin="30dp"
+        app:fadeInFraction="0.2"
+        app:fabId="@+id/fabtoolbar_fab"
+        app:containerId="@+id/fabtoolbar_container"
+        app:fabToolbarId="@+id/fabtoolbar_toolbar">
 
-        <TextView
-            android:id="@+id/player1"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/buttonLayout1"
-            android:clickable="true"
-            android:rotation="180"
-            android:text="30"
-            android:textAlignment="center"
-            app:autoSizeMaxTextSize="300dp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="MissingPrefix" />
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/player1_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_above="@+id/battleBar"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                >
+
+                <TextView
+                    android:id="@+id/player1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/buttonLayout1"
+                    android:clickable="true"
+                    android:rotation="180"
+                    android:text="30"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="300dp"
+                    app:autoSizeTextType="uniform"
+                    tools:ignore="MissingPrefix" />
+                <LinearLayout
+                    android:id="@+id/buttonLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:rotation="180">
+
+                    <ImageButton
+                        android:id="@+id/btn_plus1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@android:string/yes"
+                        app:srcCompat="@mipmap/plus" />
+
+                    <ImageButton
+                        android:id="@+id/btn_minus1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@android:string/no"
+                        app:srcCompat="@mipmap/minus" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/battleBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:max="100"
+                android:progress="50" />
+
+            <RelativeLayout
+                android:id="@+id/player2_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/battleBar"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/player2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/buttonLayout2"
+                    android:clickable="true"
+                    android:text="30"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="300dp"
+                    app:autoSizeTextType="uniform"
+                    tools:ignore="MissingPrefix" />
+
+                <LinearLayout
+                    android:id="@+id/buttonLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:rotation="0">
+
+                    <ImageButton
+                        android:id="@+id/btn_plus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@android:string/yes"
+                        app:srcCompat="@mipmap/plus" />
+
+                    <ImageButton
+                        android:id="@+id/btn_minus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@android:string/no"
+                        app:srcCompat="@mipmap/minus" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@id/fabtoolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="false"
+            android:layout_centerInParent="false"
+            android:layout_centerVertical="false">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@id/fabtoolbar_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:src="@drawable/abc_ic_menu_share_mtrl_alpha"
+                app:borderWidth="0dp"
+                app:fabSize="normal" />
+
+        </RelativeLayout>
+
         <LinearLayout
-            android:id="@+id/buttonLayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:id="@id/fabtoolbar_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:layout_centerVertical="true"
-            android:orientation="vertical"
-            android:rotation="180">
+            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btn_plus1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@android:string/yes"
-                app:srcCompat="@mipmap/plus" />
+            <ImageView
+                android:id="@+id/one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/abc_ic_menu_copy_mtrl_am_alpha" />
 
-            <ImageButton
-                android:id="@+id/btn_minus1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@android:string/no"
-                app:srcCompat="@mipmap/minus" />
+            <ImageView
+                android:id="@+id/two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/abc_ic_menu_paste_mtrl_am_alpha" />
 
+            <ImageView
+                android:id="@+id/three"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/abc_ic_menu_selectall_mtrl_alpha" />
+
+            <ImageView
+                android:id="@+id/four"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/abc_ic_menu_cut_mtrl_alpha" />
 
         </LinearLayout>
 
-    </RelativeLayout>
-
-        <ProgressBar
-            android:id="@+id/battleBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:max="100"
-            android:progress="50" />
-
-        <RelativeLayout
-            android:id="@+id/player2_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/battleBar"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:id="@+id/player2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_toStartOf="@+id/buttonLayout2"
-                android:clickable="true"
-                android:text="30"
-                android:textAlignment="center"
-                app:autoSizeMaxTextSize="300dp"
-                app:autoSizeTextType="uniform"
-                tools:ignore="MissingPrefix" />
-
-            <LinearLayout
-                android:id="@+id/buttonLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:orientation="vertical"
-                android:rotation="0">
-
-                <ImageButton
-                    android:id="@+id/btn_plus2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@android:string/yes"
-                    app:srcCompat="@mipmap/plus" />
-
-                <ImageButton
-                    android:id="@+id/btn_minus2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@android:string/no"
-                    app:srcCompat="@mipmap/minus" />
+    </com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout>
 
 
-            </LinearLayout>
-        </RelativeLayout>
-    </RelativeLayout>
+
+
+
+
+
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>
