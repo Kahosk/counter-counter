@@ -4,22 +4,26 @@
     tools:context="com.kahosk.myapplication.MainActivity">
     <item
         android:id="@+id/rotate1"
+        android:icon="@mipmap/screen_rotation_button"
         android:orderInCategory="100"
         android:title="@string/rotate"
-        app:showAsAction="never" />
+         />
     <item
-    android:id="@+id/restart"
-    android:orderInCategory="100"
-    android:title="@string/restart"
-    app:showAsAction="never" />
+        android:id="@+id/restart"
+        android:icon="@mipmap/refresh_button"
+        android:orderInCategory="100"
+        android:title="@string/restart"
+         />
     <item
         android:id="@+id/restart_commander"
+        android:icon="@mipmap/plus"
         android:orderInCategory="100"
         android:title="@string/r_commander"
-        app:showAsAction="never" />
+        />
     <item
         android:id="@+id/restart_multi"
+        android:icon="@mipmap/minus"
         android:orderInCategory="100"
         android:title="@string/r_multi"
-        app:showAsAction="never" />
+         />
 </menu>

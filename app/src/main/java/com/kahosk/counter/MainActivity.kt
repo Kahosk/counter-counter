@@ -9,9 +9,6 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.view.*
 import android.widget.TextView
-
-import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout
-
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -34,14 +31,8 @@ class MainActivity : AppCompatActivity() {
         }
         setInitials()
 
-
-
-        fabtoolbar_fab.setOnClickListener(View.OnClickListener { fabtoolbar.show() })
-        one.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
-        two.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
-        three.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
-        four.setOnClickListener(View.OnClickListener { fabtoolbar.hide() })
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -61,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    
+
     override fun onSaveInstanceState(savedInstanceState: Bundle?) {
         savedInstanceState?.putInt("player1", player1_life)
         savedInstanceState?.putInt("player2", player2_life)
@@ -77,6 +68,19 @@ class MainActivity : AppCompatActivity() {
         updateProgress()
         setOnHoldButtons()
         setTextTouch()
+        setCentralMenu()
+    }
+
+    fun setCentralMenu() {
+        fab_options.setButtonsMenu(R.menu.menu_main)
+        fab_options.setOnClickListener({v ->
+            when (v.id) {
+                R.id.restart -> restart(20)
+                R.id.restart_commander -> restart(30)
+                R.id.restart_multi-> restart(40)
+                R.id.rotate1 -> setRotation1(if (player1_rotation == 0F) 180F else 0F)}
+
+        })
     }
 
     private fun updateProgress(p1: Int = player1_life,  p2: Int = player2_life) {
